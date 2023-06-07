@@ -40,6 +40,21 @@ SELECT
     s.shopname
 FROM cats c
 JOIN shops s
+ON s.id = c.shops_id AND c.name = "Murzik";
+
+SELECT
+    s.shopname,
+    cats_shops.*
+FROM shops s
+JOIN (SELECT cats.name, cats.id FROM cats WHERE cats.name= "Murzik") cats_shops
+ON s.id = cats_shops.id;
+
+
+SELECT
+	c.name,
+    s.shopname
+FROM cats c
+JOIN shops s
 ON s.id = c.shops_id AND c.name != "Murzik" AND c.name != "Zuza";
 
 
